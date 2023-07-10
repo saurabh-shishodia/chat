@@ -1,28 +1,29 @@
 package com.example.websocketdemo.controller;
 
 import com.example.websocketdemo.model.ChatMessage;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
-/**
- * Created by rajeevkumarsingh on 24/07/17.
- */
+
 @Controller
 public class ChatController {
 
-    @MessageMapping("/chat.sendMessage")
-    @SendTo("/topic/public")
-    public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+    @MessageMapping("/chat.sendMessage/{groupName}")
+    @SendTo("/topic/public/{groupName}")
+    public ChatMessage sendMessage(@Payload ChatMessage chatMessage
+            ,@DestinationVariable String groupName) {
         return chatMessage;
     }
 
-    @MessageMapping("/chat.addUser")
-    @SendTo("/topic/public")
+    @MessageMapping("/chat.addUser/{groupName}")
+    @SendTo("/topic/public/{groupName}")
     public ChatMessage addUser(@Payload ChatMessage chatMessage,
-                               SimpMessageHeaderAccessor headerAccessor) {
+                               SimpMessageHeaderAccessor headerAccessor
+                                ,@DestinationVariable String groupName) {
         // Add username in web socket session
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         return chatMessage;

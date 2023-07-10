@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.example</groupId>
-	<artifactId>websocket-demo</artifactId>
+	<groupId>com.shishodia</groupId>
+	<artifactId>chat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.5</version>
+		<version>3.0.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -28,29 +28,34 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 
 		<!-- RabbitMQ Starter Dependency (Not required if you're using the simple in-memory broker for STOMP) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 
 		<!-- Following dependency is required for Full Featured STOMP Broker Relay -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-reactor-netty</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<version>3.0.4</version>
 			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>3.1.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
