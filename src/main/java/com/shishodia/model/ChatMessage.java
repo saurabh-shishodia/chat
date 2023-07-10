@@ -1,4 +1,4 @@
-package com.example.websocketdemo.model;
+package com.shishodia.model;
 
 public class ChatMessage {
     private MessageType type;

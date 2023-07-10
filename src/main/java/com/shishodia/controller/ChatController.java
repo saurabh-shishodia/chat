@@ -1,6 +1,6 @@
-package com.example.websocketdemo.controller;
+package com.shishodia.controller;
 
-import com.example.websocketdemo.model.ChatMessage;
+import com.shishodia.model.ChatMessage;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -15,7 +15,7 @@ public class ChatController {
     @MessageMapping("/chat.sendMessage/{groupName}")
     @SendTo("/topic/public/{groupName}")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage
-            ,@DestinationVariable String groupName) {
+            , @DestinationVariable String groupName) {
         return chatMessage;
     }
 
